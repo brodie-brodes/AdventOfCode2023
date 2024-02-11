@@ -38,8 +38,8 @@ def main():
                 galaxy_positions.append((row_idx, col_idx))
 
     # Get lists of empty rows and columns
-    empty_rows = [row_idx for row_idx, row in enumerate(lines) if row_is_empty(lines, row_idx)]
-    empty_cols = [col_idx for col_idx, col in enumerate(lines[0]) if col_is_empty(lines, col_idx)]
+    empty_rows = {row_idx for row_idx, row in enumerate(lines) if row_is_empty(lines, row_idx)}
+    empty_cols = {col_idx for col_idx, col in enumerate(lines[0]) if col_is_empty(lines, col_idx)}
 
     # Calculate distances between galaxies in pairwise fashion
     total_p1, total_p2 = 0, 0
